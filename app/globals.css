@@ -1,0 +1,218 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Циклотимия — dark liminal / cyber-gothic palette */
+  --background: #0a0a0f;
+  --foreground: #e8e6e0;
+
+  --card: #0f0f16;
+  --card-foreground: #e8e6e0;
+
+  --popover: #0f0f16;
+  --popover-foreground: #e8e6e0;
+
+  --primary: #e8e6e0;
+  --primary-foreground: #0a0a0f;
+
+  --secondary: #1a1a24;
+  --secondary-foreground: #e8e6e0;
+
+  --muted: #14141e;
+  --muted-foreground: #6b6878;
+
+  --accent-violet: #bc13fe;
+  --accent-cyan: #00f3ff;
+
+  --accent: #bc13fe;
+  --accent-foreground: #0a0a0f;
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+
+  --border: rgba(232, 230, 224, 0.08);
+  --input: rgba(232, 230, 224, 0.06);
+  --ring: #bc13fe;
+
+  --radius: 0.125rem;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Helvetica Neue', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-violet: var(--accent-violet);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--background);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Concrete / grain texture overlay */
+.texture-overlay {
+  position: relative;
+}
+.texture-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.55;
+}
+
+/* Neon scar lines — SVG-based, not block colors */
+.neon-scars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Oscillogram line */
+.oscillogram-path {
+  fill: none;
+  stroke: rgba(188, 19, 254, 0.18);
+  stroke-width: 1.2;
+}
+
+/* Product card hover blur */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.product-card img {
+  transition: filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: filter, transform;
+}
+.product-card:hover img {
+  filter: blur(3px) brightness(0.75);
+  transform: scale(1.03);
+}
+.product-card .card-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.product-card:hover .card-label {
+  opacity: 1;
+}
+
+/* Subtle letter-spacing variation for "trembling hand" feel */
+.trembling {
+  letter-spacing: 0.01em;
+}
+
+/* Nav link hover */
+.nav-link {
+  position: relative;
+  color: rgba(232, 230, 224, 0.55);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent-cyan);
+  transition: width 0.4s ease;
+}
+.nav-link:hover {
+  color: var(--foreground);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Hero CTA link */
+.hero-cta-link {
+  color: rgba(232, 230, 224, 0.6);
+  transition: color 0.3s ease;
+}
+.hero-cta-link:hover {
+  color: #e8e6e0;
+}
+.hero-cta-line {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+.hero-cta-link:hover .hero-cta-line {
+  width: 40px;
+}
+
+/* Telegram button */
+.tg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(232, 230, 224, 0.15);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  transition: border-color 0.3s, color 0.3s;
+  background: transparent;
+}
+.tg-btn:hover {
+  border-color: rgba(0, 243, 255, 0.4);
+  color: var(--accent-cyan);
+}
