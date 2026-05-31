@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { ScrollReveal } from './scroll-reveal'
 
 function Oscillogram() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -87,77 +88,87 @@ export function AboutSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
         <div className="max-w-2xl">
-          <p
-            className="text-xs tracking-[0.3em] uppercase mb-8"
-            style={{ color: 'rgba(232,230,224,0.3)' }}
-          >
-            О нас
-          </p>
+          <ScrollReveal direction="up" delay={0}>
+            <p
+              className="text-xs tracking-[0.3em] uppercase mb-8"
+              style={{ color: 'rgba(232,230,224,0.3)' }}
+            >
+              О нас
+            </p>
+          </ScrollReveal>
 
           <div className="flex flex-col gap-6">
-            <p
-              className="font-light trembling"
-              style={{
-                fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)',
-                lineHeight: 1.75,
-                color: 'rgba(232,230,224,0.85)',
-                letterSpacing: '0.015em',
-              }}
-            >
-              Циклотимия — украшения, рождённые из противоречия.
-              Каждое изделие хранит в себе напряжение между покоем и тревогой,
-              между ломкостью и прочностью.
-            </p>
+            <ScrollReveal direction="up" delay={0.1}>
+              <p
+                className="font-light trembling"
+                style={{
+                  fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)',
+                  lineHeight: 1.75,
+                  color: 'rgba(232,230,224,0.85)',
+                  letterSpacing: '0.015em',
+                }}
+              >
+                Циклотимия — украшения, рождённые из противоречия.
+                Каждое изделие хранит в себе напряжение между покоем и тревогой,
+                между ломкостью и прочностью.
+              </p>
+            </ScrollReveal>
 
-            <p
-              className="font-light"
-              style={{
-                fontSize: 'clamp(0.9rem, 1.6vw, 1.05rem)',
-                lineHeight: 1.85,
-                color: 'rgba(232,230,224,0.5)',
-                letterSpacing: '0.01em',
-              }}
-            >
-              Мы не скрываем нестабильность — мы превращаем её в форму.
-              В физическую память о моментах, когда внутри всё сдвигается.
-            </p>
+            <ScrollReveal direction="up" delay={0.2}>
+              <p
+                className="font-light"
+                style={{
+                  fontSize: 'clamp(0.9rem, 1.6vw, 1.05rem)',
+                  lineHeight: 1.85,
+                  color: 'rgba(232,230,224,0.5)',
+                  letterSpacing: '0.01em',
+                }}
+              >
+                Мы не скрываем нестабильность — мы превращаем её в форму.
+                В физическую память о моментах, когда внутри всё сдвигается.
+              </p>
+            </ScrollReveal>
 
-            <p
-              className="font-light"
-              style={{
-                fontSize: 'clamp(0.9rem, 1.6vw, 1.05rem)',
-                lineHeight: 1.85,
-                color: 'rgba(232,230,224,0.4)',
-                letterSpacing: '0.01em',
-              }}
-            >
-              Авторское серебро. Ограниченные серии. Ручная работа.
-            </p>
+            <ScrollReveal direction="up" delay={0.3}>
+              <p
+                className="font-light"
+                style={{
+                  fontSize: 'clamp(0.9rem, 1.6vw, 1.05rem)',
+                  lineHeight: 1.85,
+                  color: 'rgba(232,230,224,0.4)',
+                  letterSpacing: '0.01em',
+                }}
+              >
+                Авторское серебро. Ограниченные серии. Ручная работа.
+              </p>
+            </ScrollReveal>
           </div>
 
           {/* Decorative rule */}
-          <div
-            className="mt-12 flex items-center gap-0"
-            aria-hidden="true"
-          >
-            <span
-              style={{
-                display: 'block',
-                height: '1px',
-                width: '48px',
-                background: 'rgba(188,19,254,0.5)',
-              }}
-            />
-            <span
-              style={{
-                display: 'block',
-                height: '1px',
-                width: '16px',
-                background: 'rgba(0,243,255,0.35)',
-                marginLeft: '4px',
-              }}
-            />
-          </div>
+          <ScrollReveal direction="left" delay={0.4}>
+            <div
+              className="mt-12 flex items-center gap-0"
+              aria-hidden="true"
+            >
+              <span
+                style={{
+                  display: 'block',
+                  height: '1px',
+                  width: '48px',
+                  background: 'rgba(188,19,254,0.5)',
+                }}
+              />
+              <span
+                style={{
+                  display: 'block',
+                  height: '1px',
+                  width: '16px',
+                  background: 'rgba(0,243,255,0.35)',
+                  marginLeft: '4px',
+                }}
+              />
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
