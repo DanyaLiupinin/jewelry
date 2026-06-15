@@ -8,17 +8,7 @@ import { SiteFooter } from "@/components/site-footer";
 
 export default function Home() {
   return (
-    <main
-      style={{
-        backgroundImage: "url('/images/giphy1.gif')",
-        backgroundColor: "white",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        minHeight: "100vh",
-      }}
-    >
+    <main className="home-bg">
       <NavBar />
       <HeroSection />
       <AboutSection />

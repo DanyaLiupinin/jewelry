@@ -154,6 +154,25 @@
   letter-spacing: 0.01em;
 }
 
+/* Home page background — show full image on mobile */
+.home-bg {
+  background-image: url('/images/giphy1.gif');
+  background-color: white;
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .home-bg {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+}
+
 /* Nav link hover */
 .nav-link {
   position: relative;
