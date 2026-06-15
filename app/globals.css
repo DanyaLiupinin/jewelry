@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -40,8 +40,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Helvetica Neue', sans-serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: "Inter", "Helvetica Neue", sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -81,7 +81,7 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    font-family: "Inter", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -92,7 +92,7 @@
   position: relative;
 }
 .texture-overlay::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
@@ -125,7 +125,8 @@
   cursor: pointer;
 }
 .product-card img {
-  transition: filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  transition:
+    filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: filter, transform;
 }
@@ -163,7 +164,7 @@
   transition: color 0.3s ease;
 }
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -209,7 +210,9 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--foreground);
-  transition: border-color 0.3s, color 0.3s;
+  transition:
+    border-color 0.3s,
+    color 0.3s;
   background: transparent;
 }
 .tg-btn:hover {
